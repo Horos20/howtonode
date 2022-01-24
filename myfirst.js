@@ -1,6 +1,10 @@
-var fs = require('fs');
+var url = require('url');
+var adr = 'http://localhost:8080/default.htm?year=2017&month=february';
+var q = url.parse(adr, true);
 
-fs.rename('mynewfile1.txt', 'myrenamedfile.txt', function (err) {
-    if (err) throw err;
-    console.log('File Renamed!');
-});
+console.log(q.host);
+console.log(q.pathname);
+console.log(q.search);
+
+var qdata = q.query;
+console.log(qdata.month);
